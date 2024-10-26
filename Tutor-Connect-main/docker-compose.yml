@@ -1,0 +1,23 @@
+services:
+  backend:
+    build:
+      context: ./Server
+      dockerfile: Dockerfile
+    ports:
+      - "5002:5002"
+    environment:
+      - PORT=5002
+
+  frontend:
+    build:
+      context: ./Client/TutorConnect
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    environment:
+      - PORT=5173
+
+  redis:
+    image: "redis:alpine"
+    ports:
+      - "6379:6379"
